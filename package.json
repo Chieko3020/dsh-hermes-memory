@@ -1,0 +1,25 @@
+{
+  "name": "dsh-hermes-memory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DSH plugin: inject ~/.hermes/memories/{MEMORY.md,USER.md} into the agent system prompt as one read-only section.",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# dsh-hermes-memory bundle patch：在 profile 的 loader 树上插入一行。
+#
+# 说明（依据 ~/.dsh/profiles/web/cordis.patch.yml 与
+# @max-null/dsh-chinese-thinking/cordis.patch.yml 的真实写法）：
+#   - patch 文件是「loader patch 条目」的顶层 YAML 数组；
+#   - `insert` 把新行加进 loader 树，`id` 是这一行的 loader entry id，
+#     `name` 是**模块说明符**——由 profile 目录（~/.dsh/profiles/web/）解析，
+#     所以必须等于 package.json 的 "name"；
+#   - system-prompt 服务由 dsh-base 的 `system-prompt` 行提供，本插件只加自己的段，
+#     不要在这里重复 mount @deepseek-ai/dsh-system-prompt。
+- insert:
+    - id: hermes-memory
+      name: 'dsh-hermes-memory'
